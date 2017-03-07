@@ -44,7 +44,7 @@ def cli():
     logger = create_rotating_log(LOG)
 
     with open(DOCKERFILE, 'w') as d:
-        d.write('FROM docker-tox:latest')
+        d.write('FROM bgolden/docker-tox:latest')
 
     if not os.path.isfile(DOCKERFILE):
         with open(DOCKER_IGNORE, 'w') as i:
