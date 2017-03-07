@@ -1,4 +1,4 @@
 
         [console_scripts]
-        boxer=boxer:cli
+        boxer=boxer.boxer:cli
     

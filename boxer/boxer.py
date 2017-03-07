@@ -7,8 +7,14 @@ from logging.handlers import RotatingFileHandler
 CURR_DIR = os.getcwd()
 BOXER = os.path.join(CURR_DIR, '.boxer')
 DOCKERFILE = os.path.join(BOXER, 'Dockerfile.boxer')
+DOCKER_IGNORE = os.path.join(CURR_DIR, '.dockerignore')
 CONTAINER = 'boxer'
-LOG = os.path.join(BOXER, 'boxer.log')
+LOG = os.path.join(CURR_DIR, 'boxer.log')
+
+
+def create_boxer_dir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
 
 
 def create_rotating_log(path):
@@ -34,13 +40,15 @@ def create_rotating_log(path):
 def cli():
     """Example script."""
 
+    create_boxer_dir(BOXER)
     logger = create_rotating_log(LOG)
-
-    if not os.path.exists(BOXER):
-        os.makedirs(BOXER)
 
     with open(DOCKERFILE, 'w') as d:
         d.write('FROM docker-tox:latest')
+
+    with open(DOCKER_IGNORE, 'w') as i:
+        i.write("**/__pycache__\n")
+        i.write("**/*.pyc\n")
 
     # does a tox.ini exist?
     if not os.path.isfile('tox.ini'):
@@ -64,3 +72,4 @@ def cli():
         click.echo(stdout)
 
     container.remove()
+    os.unlink(DOCKER_IGNORE)
