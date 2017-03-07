@@ -1,12 +1,12 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     author='Bradley Golden',
     author_email='golden.bradley@gmail.com',
     description='Tox wrapped in docker',
     name='boxer',
-    version='0.2',
-    py_modules=['boxer'],
+    version='0.1',
+    packages=['boxer'],
     include_package_data=True,
     url='https://github.com/bradleygolden/boxer',
     download_url='https://github.com/bgolden/boxer/archive/0.1.tar.gz.',

@@ -46,7 +46,7 @@ def cli():
     with open(DOCKERFILE, 'w') as d:
         d.write('FROM bgolden/docker-tox:latest')
 
-    if not os.path.isfile(DOCKERFILE):
+    if not os.path.isfile(DOCKER_IGNORE):
         with open(DOCKER_IGNORE, 'w') as i:
             i.write("**/__pycache__\n")
             i.write("**/*.pyc\n")
@@ -65,7 +65,7 @@ def cli():
 
     client = docker.from_env()
     client.images.build(path=CURR_DIR, tag=CONTAINER, dockerfile=DOCKERFILE)
-    container = client.containers.run(image='CONTAINER', detach=True)
+    container = client.containers.run(image=CONTAINER, detach=True)
 
     for line in container.logs(stream=True):
         stdout = line.strip().decode('utf-8')
