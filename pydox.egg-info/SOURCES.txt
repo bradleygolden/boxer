@@ -1,7 +1,0 @@
-pydox.py
-pydox.egg-info/PKG-INFO
-pydox.egg-info/SOURCES.txt
-pydox.egg-info/dependency_links.txt
-pydox.egg-info/entry_points.txt
-pydox.egg-info/requires.txt
-pydox.egg-info/top_level.txt
