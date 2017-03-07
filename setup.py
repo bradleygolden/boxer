@@ -5,7 +5,7 @@ setup(
     author_email='golden.bradley@gmail.com',
     description='Tox wrapped in docker',
     name='boxer',
-    version='0.1',
+    version='0.2',
     py_modules=['boxer'],
     include_package_data=True,
     url='https://github.com/bradleygolden/boxer',
