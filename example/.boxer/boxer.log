@@ -1,0 +1,72 @@
+GLOB sdist-make: /workspace/setup.py
+py36 create: /workspace/.tox/py36
+py36 installdeps: pytest
+py36 inst: /workspace/.tox/dist/Example App-1.0.zip
+py36 installed: appdirs==1.4.2,Example-App==1.0,packaging==16.8,py==1.4.32,pyparsing==2.2.0,pytest==3.0.6,six==1.10.0
+py36 runtests: PYTHONHASHSEED='2993166179'
+py36 runtests: commands[0] | pytest
+============================= test session starts ==============================
+platform linux -- Python 3.6.0, pytest-3.0.6, py-1.4.32, pluggy-0.4.0
+rootdir: /workspace, inifile:
+collected 1 items
+
+tests/test_app.py .
+
+=========================== 1 passed in 0.05 seconds ===========================
+___________________________________ summary ____________________________________
+py36: commands succeeded
+congratulations :)
+GLOB sdist-make: /workspace/setup.py
+py36 create: /workspace/.tox/py36
+py36 installdeps: pytest
+py36 inst: /workspace/.tox/dist/Example App-1.0.zip
+py36 installed: appdirs==1.4.2,Example-App==1.0,packaging==16.8,py==1.4.32,pyparsing==2.2.0,pytest==3.0.6,six==1.10.0
+py36 runtests: PYTHONHASHSEED='997105427'
+py36 runtests: commands[0] | pytest
+============================= test session starts ==============================
+platform linux -- Python 3.6.0, pytest-3.0.6, py-1.4.32, pluggy-0.4.0
+rootdir: /workspace, inifile:
+collected 1 items
+
+tests/test_app.py .
+
+=========================== 1 passed in 0.02 seconds ===========================
+___________________________________ summary ____________________________________
+py36: commands succeeded
+congratulations :)
+GLOB sdist-make: /workspace/setup.py
+py36 create: /workspace/.tox/py36
+py36 installdeps: pytest
+py36 inst: /workspace/.tox/dist/Example App-1.0.zip
+py36 installed: appdirs==1.4.2,Example-App==1.0,packaging==16.8,py==1.4.32,pyparsing==2.2.0,pytest==3.0.6,six==1.10.0
+py36 runtests: PYTHONHASHSEED='374890266'
+py36 runtests: commands[0] | pytest
+============================= test session starts ==============================
+platform linux -- Python 3.6.0, pytest-3.0.6, py-1.4.32, pluggy-0.4.0
+rootdir: /workspace, inifile:
+collected 1 items
+
+tests/test_app.py .
+
+=========================== 1 passed in 0.02 seconds ===========================
+___________________________________ summary ____________________________________
+py36: commands succeeded
+congratulations :)
+2017-03-06 22:52:13,499 - Rotating Log - DEBUG - GLOB sdist-make: /workspace/setup.py
+2017-03-06 22:52:13,702 - Rotating Log - DEBUG - py36 create: /workspace/.tox/py36
+2017-03-06 22:52:17,829 - Rotating Log - DEBUG - py36 installdeps: pytest
+2017-03-06 22:52:19,097 - Rotating Log - DEBUG - py36 inst: /workspace/.tox/dist/Example App-1.0.zip
+2017-03-06 22:52:21,201 - Rotating Log - DEBUG - py36 installed: appdirs==1.4.2,Example-App==1.0,packaging==16.8,py==1.4.32,pyparsing==2.2.0,pytest==3.0.6,six==1.10.0
+2017-03-06 22:52:21,202 - Rotating Log - DEBUG - py36 runtests: PYTHONHASHSEED='3682925681'
+2017-03-06 22:52:21,203 - Rotating Log - DEBUG - py36 runtests: commands[0] | pytest
+2017-03-06 22:52:21,870 - Rotating Log - DEBUG - ============================= test session starts ==============================
+2017-03-06 22:52:21,871 - Rotating Log - DEBUG - platform linux -- Python 3.6.0, pytest-3.0.6, py-1.4.32, pluggy-0.4.0
+2017-03-06 22:52:21,871 - Rotating Log - DEBUG - rootdir: /workspace, inifile:
+2017-03-06 22:52:21,914 - Rotating Log - DEBUG - collected 1 items
+2017-03-06 22:52:21,915 - Rotating Log - DEBUG - 
+2017-03-06 22:52:21,920 - Rotating Log - DEBUG - tests/test_app.py .
+2017-03-06 22:52:21,920 - Rotating Log - DEBUG - 
+2017-03-06 22:52:21,921 - Rotating Log - DEBUG - =========================== 1 passed in 0.05 seconds ===========================
+2017-03-06 22:52:21,994 - Rotating Log - DEBUG - ___________________________________ summary ____________________________________
+2017-03-06 22:52:21,994 - Rotating Log - DEBUG - py36: commands succeeded
+2017-03-06 22:52:21,994 - Rotating Log - DEBUG - congratulations :)

@@ -1,0 +1,6 @@
+venv
+*.pyc
+__init__.py
+.tox
+.cache
+.DS_Store
