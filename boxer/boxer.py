@@ -46,9 +46,10 @@ def cli():
     with open(DOCKERFILE, 'w') as d:
         d.write('FROM docker-tox:latest')
 
-    with open(DOCKER_IGNORE, 'w') as i:
-        i.write("**/__pycache__\n")
-        i.write("**/*.pyc\n")
+    if not os.path.isfile(DOCKERFILE):
+        with open(DOCKER_IGNORE, 'w') as i:
+            i.write("**/__pycache__\n")
+            i.write("**/*.pyc\n")
 
     # does a tox.ini exist?
     if not os.path.isfile('tox.ini'):
@@ -63,8 +64,8 @@ def cli():
         return
 
     client = docker.from_env()
-    client.images.build(path=os.getcwd(), tag=CONTAINER, dockerfile=DOCKERFILE)
-    container = client.containers.run(image=CONTAINER, detach=True)
+    client.images.build(path=CURR_DIR, tag=CONTAINER, dockerfile=DOCKERFILE)
+    container = client.containers.run(image='CONTAINER', detach=True)
 
     for line in container.logs(stream=True):
         stdout = line.strip().decode('utf-8')
@@ -72,4 +73,4 @@ def cli():
         click.echo(stdout)
 
     container.remove()
-    os.unlink(DOCKER_IGNORE)
+    # os.unlink(DOCKER_IGNORE)
