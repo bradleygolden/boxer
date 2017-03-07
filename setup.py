@@ -1,6 +1,9 @@
 from setuptools import setup
 
 setup(
+    author='Bradley Golden',
+    author_email='golden.bradley@gmail.com',
+    description='Tox wrapped in docker',
     name='boxer',
     version='0.1',
     py_modules=['boxer'],
