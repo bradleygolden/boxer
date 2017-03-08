@@ -63,6 +63,20 @@ py36: commands succeeded
 congratulations :)
 ```
 
+## Why?
+
+I was tired of repeating the pattern of setting up python environments and installing tox. I also wanted a way for my collegues to quickly test their code with little overhead.
+
+boxer also serves as a useful tool during the CI process. With boxer, you can easily test your builds against multiple versions of python in a docker environment.
+
+## How does it work?
+
+Under the hood, boxer is using [docker-py](https://github.com/docker/docker-py), some existing images that I created on the Docker Hub, and the awesome [click](http://click.pocoo.org/5/) package. As you run the cli, a Dockerfile is created dynamically in the .boxer directory chained with a few images that I created for this project. Upon runtime, boxer builds the images created for this project, runs them, and executes tox against your tox.ini.
+
+Images on the Docker Hub:
+* [docker-tox](https://hub.docker.com/r/bgolden/docker-tox/)
+* [docker-pyenv](https://hub.docker.com/r/bgolden/docker-pyenv/)
+
 ## Help
 ```
 $ boxer --help
