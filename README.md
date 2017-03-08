@@ -10,7 +10,8 @@ boxer is batteries included python cli that manages python environments and tox 
 
 ## Install
 ```
-$ pip install boxer
+# $ pip install boxer  # soon
+$ pip install git+https://github.com/bradleygolden/boxer.git
 ```
 
 ## Usage
