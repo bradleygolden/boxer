@@ -25,6 +25,37 @@ Alternatively, you can include a specific versions of python.
 $ boxer -p 3.5.1 -p 3.4.4
 ```
 
+## Example Output
+```
+Step 1/1 : FROM bgolden/docker-tox:latest
+# Executing 3 build triggers...
+
+Step 1/1 : COPY $BUILD_PATH /workspace
+Step 1/1 : WORKDIR /workspace
+Step 1/1 : CMD tox
+---> Running in 7884d8ae4472
+---> 0fef0fa44d49
+Successfully built 0fef0fa44d49
+GLOB sdist-make: /workspace/setup.py
+py36 create: /workspace/.tox/py36
+py36 installdeps: pytest
+py36 inst: /workspace/.tox/dist/Example App-1.0.zip
+py36 installed: appdirs==1.4.3,Example-App==1.0,packaging==16.8,py==1.4.32,pyparsing==2.2.0,pytest==3.0.6,six==1.10.0
+py36 runtests: PYTHONHASHSEED='4201167492'
+py36 runtests: commands[0] | pytest
+============================= test session starts ==============================
+platform linux -- Python 3.6.0, pytest-3.0.6, py-1.4.32, pluggy-0.4.0
+rootdir: /workspace, inifile:
+collected 1 items
+
+test_app.py .
+
+=========================== 1 passed in 0.01 seconds ===========================
+___________________________________ summary ____________________________________
+py36: commands succeeded
+congratulations :)
+```
+
 ## Help
 ```
 $ boxer --help
