@@ -19,10 +19,10 @@ $ cd <project/with/tox.ini>
 $ boxer
 ```
 
-Alternatively, you can include a specific version of python.
+Alternatively, you can include a specific versions of python.
 
 ```
-$ boxer --python 3.5.1
+$ boxer -p 3.5.1 -p 3.4.4
 ```
 
 ## Help
