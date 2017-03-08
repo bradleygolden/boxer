@@ -3,6 +3,20 @@ pyenv and tox wrapped in docker.
 
 boxer is batteries included python cli that manages python environments and tox for you. With boxer you no longer need to think about installing multiple versions of python and their dependencies. Simply run ```boxer``` and you have the power of [tox](https://tox.readthedocs.io/en/latest/) and [pyenv](https://github.com/pyenv/pyenv) at your fingertips.
 
+## Why?
+
+I was tired of repeating the pattern of setting up python environments and installing tox. I also wanted a way for my collegues to quickly test their code with little overhead.
+
+boxer also serves as a useful tool during the CI process. With boxer, you can easily test your builds against multiple versions of python in a docker environment.
+
+## How does it work?
+
+Under the hood, boxer is using [docker-py](https://github.com/docker/docker-py), some existing images that I created on the Docker Hub, and the awesome [click](http://click.pocoo.org/5/) package. As you run the cli, a Dockerfile is created dynamically in the .boxer directory chained with a few images that I created for this project. boxer then builds the images created in the .boxer directory, runs them, and executes tox against your tox.ini.
+
+Images on the Docker Hub:
+* [docker-tox](https://hub.docker.com/r/bgolden/docker-tox/)
+* [docker-pyenv](https://hub.docker.com/r/bgolden/docker-pyenv/)
+
 ## What you need:
 * [docker](https://docs.docker.com/engine/installation/)
 * [pip](https://pip.pypa.io/en/stable/installing/)
@@ -63,20 +77,6 @@ ___________________________________ summary ____________________________________
 py36: commands succeeded
 congratulations :)
 ```
-
-## Why?
-
-I was tired of repeating the pattern of setting up python environments and installing tox. I also wanted a way for my collegues to quickly test their code with little overhead.
-
-boxer also serves as a useful tool during the CI process. With boxer, you can easily test your builds against multiple versions of python in a docker environment.
-
-## How does it work?
-
-Under the hood, boxer is using [docker-py](https://github.com/docker/docker-py), some existing images that I created on the Docker Hub, and the awesome [click](http://click.pocoo.org/5/) package. As you run the cli, a Dockerfile is created dynamically in the .boxer directory chained with a few images that I created for this project. boxer then builds the images created in the .boxer directory, runs them, and executes tox against your tox.ini.
-
-Images on the Docker Hub:
-* [docker-tox](https://hub.docker.com/r/bgolden/docker-tox/)
-* [docker-pyenv](https://hub.docker.com/r/bgolden/docker-pyenv/)
 
 ## Help
 ```
