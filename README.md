@@ -1,7 +1,7 @@
 # boxer
 pyenv and tox wrapped in docker.
 
-boxer is python cli that manages python environments with tox for you. With boxer you no longer need to install multiple python versions. Simply run ```boxer``` and all python versions are ready to be ran against tox.
+boxer is batteries included python cli that manages python environments and tox for you. With boxer you no longer need to think about installing multiple versions of python and their dependencies. Simply run ```boxer``` and you have the power of [tox](https://tox.readthedocs.io/en/latest/) and [pyenv](https://github.com/pyenv/pyenv) at your fingertips.
 
 ## What you need:
 * [docker](https://docs.docker.com/engine/installation/)
@@ -19,7 +19,14 @@ $ cd <project/with/tox.ini>
 $ boxer
 ```
 
-Alternatively, you can include specific versions of python.
+## Python versions included
+
+* 2.7.13
+* 3.5.3
+* 3.6.0
+* 3.4.6
+
+Alternatively, you can include more versions of python youself.
 
 ```
 $ boxer -p 3.5.1 -p 3.4.4
