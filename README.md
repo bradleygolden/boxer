@@ -4,9 +4,9 @@ pyenv and tox wrapped in docker.
 boxer is python cli that manages python environments with tox for you. With boxer you no longer need to install multiple python versions. Simply run ```boxer``` and all python versions are ready to be ran against tox.
 
 ## What you need:
-* Docker daemon
-* pip
-* Connection to Docker Hub
+* [docker](https://docs.docker.com/engine/installation/)
+* [pip](https://pip.pypa.io/en/stable/installing/)
+* connection to [docker hub](https://hub.docker.com/)
 
 ## Install
 ```
