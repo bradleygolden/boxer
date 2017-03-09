@@ -37,9 +37,9 @@ $ boxer
 ## Python versions included
 
 * 2.7.13
+* 3.4.6
 * 3.5.3
 * 3.6.0
-* 3.4.6
 
 Alternatively, you can include more versions of python youself.
 
