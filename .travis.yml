@@ -8,5 +8,5 @@ python:
 services:
   - docker
 
-install: pip install boxer
+install: pip install git+https://github.com/bradleygolden/boxer.git
 script: boxer
