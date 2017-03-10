@@ -1,4 +1,7 @@
 # boxer
+
+[![Coverage Status](https://coveralls.io/repos/github/bradleygolden/boxer/badge.svg?branch=master)](https://coveralls.io/github/bradleygolden/boxer?branch=master)
+
 pyenv and tox wrapped in docker.
 
 boxer is python cli that manages python environments with tox for you. With boxer you no longer need to install multiple python versions. Simply run ```boxer``` and all python versions are ready to be ran against tox.

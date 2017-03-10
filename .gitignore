@@ -93,6 +93,7 @@ ENV/
 
 # Boxer
 example/.boxer
+.boxer
 
 # Docker
 .dockerignore
