@@ -191,7 +191,9 @@ def cli(project, image, logs, boxer, dockerfile, dockerignore, tag, tox_file, py
     build_images(project, dockerfile, tag)
     container = run_container(client, tag)
 
-    if b'ERROR:' in container.logs():
+    logs = container.logs()
+
+    if b'ERROR:' in logs:
         container.remove()
         raise ToxError('tox failed for some reason.')
 
