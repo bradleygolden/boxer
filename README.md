@@ -2,6 +2,7 @@
 
 <img src="https://github.com/bradleygolden/boxer/blob/master/repo-logo.jpg" width="300">
 
+[![Build Status](https://travis-ci.org/bradleygolden/boxer.svg?branch=master)](https://travis-ci.org/bradleygolden/boxer)
 [![Coverage Status](https://coveralls.io/repos/github/bradleygolden/boxer/badge.svg?branch=master)](https://coveralls.io/github/bradleygolden/boxer?branch=master)
 
 pyenv and tox combined with the power of docker.
