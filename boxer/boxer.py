@@ -6,6 +6,10 @@ from logging.handlers import RotatingFileHandler
 from docker import APIClient
 
 
+class ToxError(Exception):
+    pass
+
+
 CURR_DIR = os.getcwd()
 BOXER = os.path.join(CURR_DIR, '.boxer')
 DOCKERFILE = os.path.join(BOXER, 'Dockerfile')
@@ -186,6 +190,10 @@ def cli(project, image, logs, boxer, dockerfile, dockerignore, tag, tox_file, py
     client = docker.from_env()
     build_images(project, dockerfile, tag)
     container = run_container(client, tag)
+
+    if b'ERROR:' in container.logs():
+        container.remove()
+        raise ToxError('tox failed for some reason.')
 
     container.remove()
 
