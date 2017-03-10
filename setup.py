@@ -6,10 +6,12 @@ setup(
     description='Tox wrapped in docker',
     name='boxer',
     version='0.1',
-    packages=['boxer'],
+    packages=find_packages('boxer', exclude=['tests']),
     include_package_data=True,
     url='https://github.com/bradleygolden/boxer',
     keywords=['tox', 'pyenv', 'docker'],
+    setup_requires=['pytest-runner'],
+    tests_require=['pytest'],
     install_requires=[
         'Click',
         'docker'
