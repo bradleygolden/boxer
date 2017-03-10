@@ -10,7 +10,7 @@ services:
 
 install:
   - pip install git+https://github.com/bradleygolden/boxer.git
-  - pip install coveralls
+  - pip install coveralls coverage
 
 script:
   - boxer
