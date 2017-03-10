@@ -29,7 +29,7 @@ def create_logger():
 logger = create_logger()
 
 
-def create_boxer_dir(path):
+def create_dir(path):
     if not os.path.exists(path):
         os.makedirs(path)
 
@@ -42,6 +42,11 @@ def create_dockerfile(dockerfile, tag, python):
             dfile.write('RUN pyenv install {python}\n'.format(python=p))
 
 
+def str_in_file(file_path, string):
+    with open(file_path) as f:
+        return string in f.read()
+
+
 def manage_dockerignore(dockerignore):
     permissions = 'w'
 
@@ -49,8 +54,12 @@ def manage_dockerignore(dockerignore):
         permissions = 'a'
 
     with open(dockerignore, permissions) as i:
-        i.write("**/__pycache__\n")
-        i.write("**/*.pyc\n")
+        pycache = '**/__pycache__'
+        if not str_in_file(dockerignore, pycache):
+            i.write(pycache + "\n")
+        pyc = "**/*.pyc"
+        if not str_in_file(dockerignore, pyc):
+            i.write(pyc + "\n")
 
 
 def find_tox_file(tox_file):
@@ -115,7 +124,7 @@ def add_rotating_logs(path):
 def cli(project, image, logs, boxer, dockerfile, dockerignore, tag, tox_file, python):
     """Example script."""
 
-    create_boxer_dir(boxer)
+    create_dir(boxer)
     add_rotating_logs(logs)
     create_dockerfile(dockerfile, image, python)
     manage_dockerignore(dockerignore)
