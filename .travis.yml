@@ -8,5 +8,13 @@ python:
 services:
   - docker
 
-install: pip install git+https://github.com/bradleygolden/boxer.git
-script: boxer
+install:
+  - pip install git+https://github.com/bradleygolden/boxer.git
+  - pip install coveralls
+
+script:
+  - boxer
+  - coverage run -m boxer.boxer
+
+after_success:
+  coveralls
