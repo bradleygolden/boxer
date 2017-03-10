@@ -30,49 +30,102 @@ logger = create_logger()
 
 
 def create_dir(path):
+    """Create a directory if it doesn't exist.
+
+    Args:
+        path: The path where the directory is created.
+    """
     if not os.path.exists(path):
         os.makedirs(path)
 
 
-def create_dockerfile(dockerfile, tag, python):
-    with open(dockerfile, 'w') as dfile:
-        dfile.write('FROM {tag}\n'.format(tag=tag))
+def create_dockerfile(dockerfile, tag, pythons):
+    """Create a Dockerfile.
 
-        for p in python:
-            dfile.write('RUN pyenv install {python}\n'.format(python=p))
+    Args:
+        dockerfile: The path to the dockerfile.
+        tag: The tag assigned after 'FROM' in the first line of the dockerfile.
+        pythons: A list of python versions. Example: ['2.7.12', '3.4.1']
+
+    Returns:
+        The contents of the dockerfile created.
+    """
+    contents = []
+    with open(dockerfile, 'w') as dfile:
+        contents.append('FROM {tag}\n'.format(tag=tag))
+
+        for python in pythons:
+            contents.append('RUN pyenv install {python}\n'.format(python=python))
+
+        dfile.writelines(contents)
+
+    return contents
 
 
 def str_in_file(file_path, string):
+    """Determine if a string exists in a given file.
+
+    Args:
+        file_path: The path of the file to look in.
+        string: The string to look for.
+
+    Returns:
+        True if the string is exists in the file, False otherwise.
+    """
+    if not os.path.exists(file_path):
+        return False
+
     with open(file_path) as f:
-        return string in f.read()
+        result = string in f.read()
+
+    return result
 
 
-def manage_dockerignore(dockerignore):
-    permissions = 'w'
+def create_dockerignore(dockerignore):
+    """Create .dockerignore file.
 
-    if os.path.isfile(dockerignore):  # don't remove existing dockerignore
-        permissions = 'a'
+    Creates a dockerignore file if one doesn't exist. If a dockerignore does
+    exist, checks if that dockerignore contains boxer's required dockerignore
+    commands. If the dockerignore contains the necessary commands, this function
+    does nothing.
 
-    with open(dockerignore, permissions) as i:
+    Args:
+        dockerignore: Path to a .dockerignore file
+
+    Returns:
+        None
+    """
+    with open(dockerignore, 'w+') as i:
         pycache = '**/__pycache__'
         if not str_in_file(dockerignore, pycache):
             i.write(pycache + "\n")
-        pyc = "**/*.pyc"
+        pyc = '**/*.pyc'
         if not str_in_file(dockerignore, pyc):
             i.write(pyc + "\n")
 
 
 def find_tox_file(tox_file):
-    if not os.path.isfile(tox_file):
-        tox_prompt = (
-            "A tox.ini doesn't exist in the directory, please create one.\n\n"
-            "For more information about tox, please visit:\n"
-            "https://tox.readthedocs.io"
-        )
-        logger.info(tox_prompt)
-        logger.debug('tox.ini not found')
-        click.echo(tox_prompt)
-        return
+    """Find a tox.ini file.
+
+    Args:
+        tox_file: Path to a tox file.
+
+    Returns:
+        True if a tox file was found, False otherwise.
+    """
+    if os.path.isfile(tox_file):
+        return True
+
+    tox_prompt = (
+        "A tox.ini doesn't exist in the directory, please create one.\n\n"
+        "For more information about tox, please visit:\n"
+        "https://tox.readthedocs.io"
+    )
+    logger.info(tox_prompt)
+    logger.debug('tox.ini not found')
+    click.echo(tox_prompt)
+
+    return False
 
 
 def build_images(path, dockerfile, tag):
@@ -127,7 +180,7 @@ def cli(project, image, logs, boxer, dockerfile, dockerignore, tag, tox_file, py
     create_dir(boxer)
     add_rotating_logs(logs)
     create_dockerfile(dockerfile, image, python)
-    manage_dockerignore(dockerignore)
+    create_dockerignore(dockerignore)
     find_tox_file(tox_file)
 
     client = docker.from_env()
