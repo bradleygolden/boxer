@@ -1,16 +1,19 @@
 # boxer
 
+<img src="https://github.com/bradleygolden/boxer/blob/master/repo-logo.jpg" width="300">
+
 [![Coverage Status](https://coveralls.io/repos/github/bradleygolden/boxer/badge.svg?branch=master)](https://coveralls.io/github/bradleygolden/boxer?branch=master)
 
-pyenv and tox wrapped in docker.
+pyenv and tox combined with the power of docker.
 
-boxer is batteries included python cli that manages python environments and tox for you. With boxer you no longer need to think about installing multiple versions of python and their dependencies. Simply run ```boxer``` and you have the power of [tox](https://tox.readthedocs.io/en/latest/) and [pyenv](https://github.com/pyenv/pyenv) at your fingertips.
+boxer is a an automation tool that manages testing and python environments. The power of boxer lies in its ability to run tests against your code with all versions of python in complete isolation from your local devlopment environment. This is helpful because you no longer have to think about installing python, let alone multiple versions. Simply run ```boxer``` in your command line and you have the power of [tox](https://tox.readthedocs.io/en/latest/) and [pyenv](https://github.com/pyenv/pyenv) at your fingertips.
 
-## Why?
-
-I was tired of repeating the pattern of setting up python environments and installing tox. I also wanted a way for my collegues to quickly test their code with little overhead.
-
-boxer also serves as a useful tool during the CI process. With boxer, you can easily test your builds against multiple versions of python in a docker environment.
+## Features:
+* Automatically manages your python environments
+* Runs tests in an isolated conatainer, away from your local environment
+* Use tox as you always have
+* Python versions 2.7.13, 3.4.6, 3.5.3, 3.6.0 are included by default
+* Use any python >= 2.7
 
 ## How does it work?
 
@@ -39,10 +42,7 @@ $ boxer
 
 ## Python versions included
 
-* 2.7.13
-* 3.4.6
-* 3.5.3
-* 3.6.0
+
 
 Alternatively, you can include more versions of python youself.
 
