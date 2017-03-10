@@ -16,6 +16,9 @@ boxer is a an automation tool that manages testing and python environments. The 
 * Python versions 2.7.13, 3.5.3, 3.6.0 are included by default
 * Use any python >= 2.7
 
+### Warning
+boxer is not yet ready to be integrated with CI.
+
 ## How does it work?
 
 Under the hood, boxer is using [docker-py](https://github.com/docker/docker-py), some existing images that I created on the Docker Hub, and the awesome [click](http://click.pocoo.org/5/) package. As you run the cli, a Dockerfile is created dynamically in the .boxer directory chained with a few images that I created for this project. boxer then builds the images created in the .boxer directory, runs them, and executes tox against your tox.ini.
