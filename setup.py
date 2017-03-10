@@ -6,7 +6,7 @@ setup(
     description='Tox wrapped in docker',
     name='boxer',
     version='0.1',
-    packages=find_packages('boxer'),
+    packages=['boxer'],
     include_package_data=True,
     url='https://github.com/bradleygolden/boxer',
     keywords=['tox', 'pyenv', 'docker'],
