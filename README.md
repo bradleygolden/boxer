@@ -13,7 +13,7 @@ boxer is a an automation tool that manages testing and python environments. The 
 * Automatically manages your python environments
 * Runs tests in an isolated conatainer, away from your local environment
 * Use tox as you always have
-* Python versions 2.7.13, 3.4.6, 3.5.3, 3.6.0 are included by default
+* Python versions 2.7.13, 3.5.3, 3.6.0 are included by default
 * Use any python >= 2.7
 
 ## How does it work?
