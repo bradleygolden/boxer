@@ -6,7 +6,7 @@
 
 pyenv and tox combined with the power of docker.
 
-boxer is a an automation tool that manages testing and python environments. The power of boxer lies in its ability to run tests against your code, with all versions of python, in complete isolation from your local devlopment environment. This is helpful because you no longer have to think about installing python, let alone multiple versions of it. Simply run ```boxer``` in your command line and you have the power of [tox](https://tox.readthedocs.io/en/latest/) and [pyenv](https://github.com/pyenv/pyenv) at your fingertips.
+boxer is a an automation tool that manages testing and python environments. The power of boxer lies in its ability to run tests against your code, with all versions of python, in complete isolation from your local devlopment environment. This is helpful because you no longer have to think about installing python, let alone multiple versions of it. Simply run ```boxer``` in your command line and you have the power of [tox](https://tox.readthedocs.io/en/latest/), [pyenv](https://github.com/pyenv/pyenv), and [docker](https://www.docker.com/) at your fingertips.
 
 ## Features:
 * Automatically manages your python environments
